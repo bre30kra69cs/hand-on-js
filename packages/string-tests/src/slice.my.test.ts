@@ -1,0 +1,61 @@
+import {slice} from './slice.my';
+
+describe('slice', () => {
+  test('empty', () => {
+    expect(slice('')).toEqual('');
+    expect(slice('', 0)).toEqual('');
+    expect(slice('', -1)).toEqual('');
+    expect(slice('', 1)).toEqual('');
+    expect(slice('', 1.1)).toEqual('');
+    expect(slice('', 2.2)).toEqual('');
+    expect(slice('', 2.6)).toEqual('');
+    expect(slice('', 2.9)).toEqual('');
+    expect(slice('', NaN)).toEqual('');
+    expect(slice('', Infinity)).toEqual('');
+    expect(slice('', -Infinity)).toEqual('');
+    expect(slice('', 1, 0)).toEqual('');
+    expect(slice('', 1, 1)).toEqual('');
+    expect(slice('', 1, -1)).toEqual('');
+    expect(slice('', 1, 1.1)).toEqual('');
+    expect(slice('', 1, 2.2)).toEqual('');
+    expect(slice('', 1, 2.6)).toEqual('');
+    expect(slice('', 1, 2.9)).toEqual('');
+    expect(slice('', 1, NaN)).toEqual('');
+    expect(slice('', 1, Infinity)).toEqual('');
+    expect(slice('', 1, -Infinity)).toEqual('');
+  });
+
+  test('valid', () => {
+    expect(slice('example')).toEqual('example');
+    expect(slice('example', 0)).toEqual('example');
+    expect(slice('example', -1)).toEqual('e');
+    expect(slice('example', -1.1)).toEqual('e');
+    expect(slice('example', -2)).toEqual('le');
+    expect(slice('example', -2.2)).toEqual('le');
+    expect(slice('example', -2.6)).toEqual('le');
+    expect(slice('example', -2.9)).toEqual('le');
+    expect(slice('example', 1)).toEqual('xample');
+    expect(slice('example', 1.1)).toEqual('xample');
+    expect(slice('example', 2.2)).toEqual('ample');
+    expect(slice('example', 2.6)).toEqual('ample');
+    expect(slice('example', 2.9)).toEqual('ample');
+    expect(slice('example', NaN)).toEqual('example');
+    expect(slice('example', Infinity)).toEqual('');
+    expect(slice('example', -Infinity)).toEqual('example');
+    expect(slice('example', 1, 0)).toEqual('');
+    expect(slice('example', 1, 1)).toEqual('');
+    expect(slice('example', 1, -1)).toEqual('xampl');
+    expect(slice('example', 1, 1.1)).toEqual('');
+    expect(slice('example', 1, 2.2)).toEqual('x');
+    expect(slice('example', 1, 2.6)).toEqual('x');
+    expect(slice('example', 1, 2.9)).toEqual('x');
+    expect(slice('example', 1, -1.1)).toEqual('xampl');
+    expect(slice('example', 1, -2.2)).toEqual('xamp');
+    expect(slice('example', 1, -2.6)).toEqual('xamp');
+    expect(slice('example', 1, -2.9)).toEqual('xamp');
+    expect(slice('example', 1, NaN)).toEqual('');
+    expect(slice('example', 1, Infinity)).toEqual('xample');
+    expect(slice('example', 1, -Infinity)).toEqual('');
+    expect(slice('example', NaN, Infinity)).toEqual('example');
+  });
+});

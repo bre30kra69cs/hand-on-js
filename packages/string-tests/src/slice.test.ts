@@ -1,4 +1,4 @@
-describe('slice', () => {
+describe('slice.my', () => {
   test('empty', () => {
     expect(''.slice()).toEqual('');
     expect(''.slice(0)).toEqual('');
