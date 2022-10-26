@@ -1,0 +1,17 @@
+{
+  "name": "hand-on-js",
+  "version": "0.1.0",
+  "description": "js examples, tests and scatches",
+  "repository": "git@github.com:bre30kra69cs/hand-on-js.git",
+  "author": "Andrey Krasovsky <an.krasowsckij@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "packageManager": "yarn@3.2.4"
+}
